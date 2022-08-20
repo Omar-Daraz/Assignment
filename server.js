@@ -22,7 +22,10 @@ console.log("Connected to Database");
 
 
 
-app.use(cors())
+
+app.use(cors({
+    origin: 'http://localhost:4200/'
+}));
 app.use(bodyParser.json())
 app.get("/",(req,res)=>{
 	res.send("Running")

@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
-const cors = require('cors')
+// const cors = require('cors')
 const app = express()
 const port = 4000
 
@@ -19,16 +19,6 @@ console.log("Connected to Database");
     console.log("Not Connected to Database ERROR! ", err.message);
 });
 
-
-
-
-app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
-});
 
 app.use(bodyParser.json())
 app.get("/",(req,res)=>{

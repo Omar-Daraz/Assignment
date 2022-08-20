@@ -7,7 +7,7 @@ const { v4: uuidv4 } = require('uuid');
 module.exports.userLogin = [
 	body("email","Email is required").isEmail(),
 	body("password","Minimum 5 char password is required").isLength({min:5}),
-	(req,res,next)=>{
+	(req,res)=>{
 		// console.log("Body::",req.body)
 		const errors = validationResult(req)
 		if(!errors.isEmpty()){
@@ -33,7 +33,7 @@ module.exports.userLogin = [
 						}
 						else{
 							const token=jwt.sign({_id:user._id,tokenId:uuidv4()},"vikassharma")
-							next();
+						
 							return res.json({token,user:{_id,firstName,lastName,email}}).status(200)
 						}
 					})

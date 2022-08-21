@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const app = express()
-const port =5000
+
 
 
 const allowedOrigins = [
@@ -58,4 +58,4 @@ app.use("/cart", cartRoutes)
 app.use("/order", orderRoutes)
 app.use("/payment", paymentRoutes)
 
-app.listen(port, (req, res) => console.log(`Server is running at ${port}`))
+app.listen(process.env.PORT||5000, () => console.log(`Server is running at ${process.env.PORT}`));

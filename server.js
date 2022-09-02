@@ -59,4 +59,4 @@ app.use("/cart", cartRoutes)
 app.use("/order", orderRoutes)
 app.use("/payment", paymentRoutes)
 
-app.listen(process.env.PORT || 5000, () => console.log(`Server is running at ${process.env.PORT}`));
+app.listen(process.env.PORT || 9999, () => console.log(`Server is running at ${process.env.PORT}`));
